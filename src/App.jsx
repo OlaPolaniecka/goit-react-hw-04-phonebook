@@ -26,14 +26,14 @@ const App = () => {
       prevContacts.filter(prevContacts => prevContacts.id !== id)
     );
 
-  const handleFilterChange = filter => setFilter({ filter });
+  const handleFilterChange = filter => setFilter(filter);
 
   const getVisableContacts = () => {
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-
+  getVisableContacts();
   return (
     <div>
       <h1>Phonebook</h1>
