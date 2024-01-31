@@ -13,26 +13,22 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   const handleAddContact = newContact =>
-    setContacts(({ prevContacts }) => ({
-      prevContacts: [...prevContacts, newContact],
-    }));
+    setContacts(prev => [...prev, newContact]);
 
   const handleCheckUnique = name => {
-    const { contacts } = this.state;
     const isExistContact = contacts.find(contact => contact.name === name);
     isExistContact && alert('Contact is already exist');
     return !isExistContact;
   };
 
   const handleRemoveContact = id =>
-    setContacts(({ prevContacts }) => ({
-      prevContacts: prevContacts.filter(prevContacts => prevContacts.id !== id),
-    }));
+    setContacts(prevContacts =>
+      prevContacts.filter(prevContacts => prevContacts.id !== id)
+    );
 
   const handleFilterChange = filter => setFilter({ filter });
 
   const getVisableContacts = () => {
-    const { contacts, filter } = this.state;
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
