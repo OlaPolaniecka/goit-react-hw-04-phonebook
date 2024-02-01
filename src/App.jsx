@@ -33,7 +33,7 @@ const App = () => {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-  getVisableContacts();
+
   return (
     <div>
       <h1>Phonebook</h1>
@@ -41,7 +41,7 @@ const App = () => {
       <h1>Contacts</h1>
       <Filter filter={filter} onChange={handleFilterChange} />
       <ContactList
-        contacts={getVisableContacts}
+        contacts={getVisableContacts()}
         onRemove={handleRemoveContact}
       />
     </div>
